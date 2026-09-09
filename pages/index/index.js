@@ -1,7 +1,7 @@
 Page({
   // data 是页面初始状态，只能通过 setData 修改，直接赋值不会触发渲染
   data: {
-    title: '你好',
+    title: '你好，小程序',
     count: 0,
     deviceInfo: '',
     todos: [
@@ -23,10 +23,9 @@ Page({
   // 注意 dataset 的值都是字符串，需要自己转类型
   onAdd(e) {
     const step = Number(e.currentTarget.dataset.step)
-    this.data.count = this.data.count + step   // 故意不用 setData
-    console.log('count 现在是', this.data.count)
-  }
-  
+    // 必须走 setData：直接写 this.data.count = ... 不会触发渲染
+    this.setData({ count: this.data.count + step })
+  },
 
   onReset() {
     this.setData({ count: 0 })
