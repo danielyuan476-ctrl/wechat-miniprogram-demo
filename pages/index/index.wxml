@@ -1,0 +1,36 @@
+<view class="container">
+  <view class="card">
+    <view class="title">{{ title }}</view>
+    <view class="muted">这是一个原生微信小程序骨架</view>
+  </view>
+
+  <!-- 计数器：演示事件绑定 + setData -->
+  <view class="card">
+    <view class="title">计数器：{{ count }}</view>
+    <view class="btn-row">
+      <button size="mini" bindtap="onAdd" data-step="1">+1</button>
+      <button size="mini" bindtap="onAdd" data-step="5">+5</button>
+      <button size="mini" bindtap="onReset">重置</button>
+    </view>
+  </view>
+
+  <!-- 列表渲染：wx:for 相当于 v-for，wx:key 必填以复用节点 -->
+  <view class="card">
+    <view class="title">待办列表</view>
+    <view wx:for="{{ todos }}" wx:key="id" class="todo-item">
+      <text class="{{ item.done ? 'done' : '' }}" bindtap="onToggle" data-id="{{ item.id }}">
+        {{ item.text }}
+      </text>
+    </view>
+    <!-- wx:if 相当于 v-if，条件不成立时不渲染节点 -->
+    <view wx:if="{{ todos.length === 0 }}" class="muted">暂无待办</view>
+  </view>
+
+  <!-- 调用原生能力 -->
+  <view class="card">
+    <view class="title">原生 API</view>
+    <button size="mini" bindtap="onShowToast">弹个提示</button>
+    <button size="mini" bindtap="onGetSystemInfo">读设备信息</button>
+    <view wx:if="{{ deviceInfo }}" class="muted">{{ deviceInfo }}</view>
+  </view>
+</view>

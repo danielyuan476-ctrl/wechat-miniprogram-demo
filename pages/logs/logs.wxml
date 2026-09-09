@@ -1,0 +1,13 @@
+<view class="container">
+  <view class="card">
+    <view class="title">页面导航示例</view>
+    <button size="mini" bindtap="goIndex">跳到首页</button>
+    <view class="muted">tabBar 页面之间必须用 wx.switchTab，普通页面用 wx.navigateTo</view>
+  </view>
+
+  <view class="card">
+    <view class="title">本地缓存</view>
+    <button size="mini" bindtap="onSave">写入一条记录</button>
+    <view wx:for="{{ logs }}" wx:key="*this" class="muted">{{ item }}</view>
+  </view>
+</view>

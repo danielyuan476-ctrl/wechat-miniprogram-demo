@@ -1,0 +1,19 @@
+.btn-row {
+  display: flex;
+  gap: 16rpx;
+  flex-wrap: wrap;
+}
+
+.todo-item {
+  padding: 20rpx 0;
+  border-bottom: 1rpx solid #eee;
+}
+
+.todo-item:last-child {
+  border-bottom: none;
+}
+
+.done {
+  text-decoration: line-through;
+  color: #bbb;
+}
